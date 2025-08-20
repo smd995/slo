@@ -1,6 +1,17 @@
 export interface User {
-  id: string;
-  name: string;
+  teamId: number;
+  id: number;
   email: string;
-  avatar?: string;
+  name: string;
+  companyName: string;
+  image: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface AuthState {
+  user: User | null;
+  token: string | null;
+  isLoading: boolean;
+  isAuthenticated: boolean;
 }
