@@ -6,13 +6,11 @@ export const Header = () => {
     <header className="bg-primary-500 flex h-[60px] items-center">
       <div className="mx-auto flex h-[60px] w-full max-w-[1200px] items-center justify-between px-4">
         <div className="flex items-center gap-3.5 sm:gap-7">
-          <a href="/">
-            <HeaderLogo
-              onClick={() => {
-                return null;
-              }}
-            />
-          </a>
+          <HeaderLogo
+            onClick={() => {
+              return null;
+            }}
+          />
           <nav className="flex items-center gap-3 sm:gap-6">
             <a>
               <NavItem>
@@ -32,9 +30,13 @@ export const Header = () => {
           </nav>
         </div>
 
-        {/* <a href="/login">
+        <a href="/login">
           <NavItem ariaLabel="로그인 메뉴">로그인</NavItem>
-        </a> */}
+        </a>
+
+        {/* <div>
+          <UserMenuDropdown />
+        </div> */}
 
         {/* <Dropdown
           selectBehavior={"select"}

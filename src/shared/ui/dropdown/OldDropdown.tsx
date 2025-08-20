@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
-import { ArrowIcon } from "./ArrowIcon";
-import { SortIcon } from "./DropdownIcons";
+import { ArrowIcon } from "./icons/ArrowIcon";
+import { SortIcon } from "./icons/DropdownIcons";
 
 // 리스트 옵션 타입 정의
 type OldDropdownOption = {
