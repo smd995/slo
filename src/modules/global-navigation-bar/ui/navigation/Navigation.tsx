@@ -5,11 +5,22 @@ import type { ComponentProps } from "react";
 import useLikeStore from "@/features/like/model/useLikeCount";
 import { Badge } from "@/shared/ui/badge/Badge";
 
-type NavigationProps = ComponentProps<typeof BaseNavigation>;
+type NavigationProps = ComponentProps<typeof BaseNavigation> & {
+  // Storybook을 위한 props 추가
+  mockLikeCount?: number;
+};
 
-export const Navigation = ({ className, ...props }: NavigationProps) => {
+export const Navigation = ({
+  className,
+  mockLikeCount,
+  ...props
+}: NavigationProps) => {
   const location = useLocation();
-  const { likeCount } = useLikeStore();
+  const { likeCount: storeLikeCount } = useLikeStore();
+
+  // mockLikeCount가 있으면 그것을 사용, 없으면 실제 store 값 사용
+  const likeCount =
+    mockLikeCount !== undefined ? mockLikeCount : storeLikeCount;
 
   const navigationItems = [
     {
@@ -24,6 +35,7 @@ export const Navigation = ({ className, ...props }: NavigationProps) => {
       active: location.pathname === "/liked",
       ariaLabel: `찜한 모임 메뉴, 찜한 항목 ${likeCount}개`,
       badge: likeCount,
+      hasBadge: true, // Badge 영역이 있음을 표시
     },
     {
       label: "모든 리뷰",
@@ -39,9 +51,12 @@ export const Navigation = ({ className, ...props }: NavigationProps) => {
         <Link key={item.href} to={item.href}>
           <NavItem active={item.active} aria-label={item.ariaLabel}>
             <span>{item.label}</span>
-            {item.badge !== undefined && item.badge > 0 && (
-              <Badge count={item.badge} />
-            )}
+            {/* Badge 영역을 항상 확보 */}
+            <div className="flex min-w-[20px] justify-center">
+              {item.badge !== undefined && item.badge > 0 && (
+                <Badge count={item.badge} />
+              )}
+            </div>
           </NavItem>
         </Link>
       ))}
