@@ -7,7 +7,7 @@ const meta: Meta<typeof Navigation> = {
   component: Navigation,
   decorators: [
     (Story) => (
-      <div style={{ width: "auto", backgroundColor: "#3451f8" }}>
+      <div style={{ width: "fit-content", backgroundColor: "#6d82fa" }}>
         <Story />
       </div>
     ),
@@ -26,7 +26,7 @@ export const Default: Story = {
   decorators: [
     (Story) => (
       <MemoryRouter initialEntries={["/"]}>
-        <div style={{ backgroundColor: "#3451f8" }}>
+        <div>
           <Story />
         </div>
       </MemoryRouter>
@@ -41,7 +41,7 @@ export const LikedPage: Story = {
   decorators: [
     (Story) => (
       <MemoryRouter initialEntries={["/liked"]}>
-        <div style={{ backgroundColor: "#3451f8" }}>
+        <div>
           <Story />
         </div>
       </MemoryRouter>
@@ -53,7 +53,7 @@ export const LikedPageWithBadge: Story = {
   decorators: [
     (Story) => (
       <MemoryRouter initialEntries={["/liked"]}>
-        <div style={{ backgroundColor: "#3451f8" }}>
+        <div>
           <Story />
         </div>
       </MemoryRouter>
@@ -68,7 +68,7 @@ export const ReviewsPage: Story = {
   decorators: [
     (Story) => (
       <MemoryRouter initialEntries={["/reviews"]}>
-        <div style={{ backgroundColor: "#3451f8" }}>
+        <div>
           <Story />
         </div>
       </MemoryRouter>
@@ -92,7 +92,7 @@ export const EdgeCase: Story = {
   decorators: [
     (Story) => (
       <MemoryRouter initialEntries={["/"]}>
-        <div style={{ backgroundColor: "#3451f8" }}>
+        <div>
           <Story />
         </div>
       </MemoryRouter>

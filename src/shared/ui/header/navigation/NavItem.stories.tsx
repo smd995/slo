@@ -6,7 +6,7 @@ const meta: Meta<typeof NavItem> = {
   component: NavItem,
   decorators: [
     (Story) => (
-      <div style={{ width: "62px", backgroundColor: "#3451f8" }}>
+      <div style={{ width: "62px", backgroundColor: "#6d82fa" }}>
         <Story />
       </div>
     ),
