@@ -1,4 +1,4 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 interface LogoProps extends ComponentProps<"img"> {
   src?: string;
@@ -6,6 +6,7 @@ interface LogoProps extends ComponentProps<"img"> {
   width?: number;
   height?: number;
   className?: string;
+  children?: ReactNode;
 }
 
 export const Logo = ({
@@ -14,8 +15,17 @@ export const Logo = ({
   width = 120,
   height = 40,
   className = "",
+  children,
   ...props
 }: LogoProps) => {
+  if (children) {
+    return (
+      <div className={className} {...props}>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <img
       src={src}

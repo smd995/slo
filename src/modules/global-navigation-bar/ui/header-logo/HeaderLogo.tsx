@@ -1,10 +1,17 @@
 import { Logo } from "@/shared/ui/header/primitives/Logo";
 import type { ComponentProps } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { SloIcon } from "./SloIcon";
 
-type HeaderLogoProps = ComponentProps<typeof Logo>;
+interface HeaderLogoProps extends ComponentProps<typeof Logo> {
+  fill?: string;
+}
 
-export const HeaderLogo = ({ className, ...props }: HeaderLogoProps) => {
+export const HeaderLogo = ({
+  className,
+  fill = "#FFFFFF",
+  ...props
+}: HeaderLogoProps) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -20,13 +27,9 @@ export const HeaderLogo = ({ className, ...props }: HeaderLogoProps) => {
 
   return (
     <div onClick={handleClick} className={`cursor-pointer ${className}`}>
-      <Logo
-        src="/slo.svg"
-        alt="로고 이미지"
-        width={120}
-        height={40}
-        {...props}
-      />
+      <Logo {...props}>
+        <SloIcon fill={fill} height={40} />
+      </Logo>
     </div>
   );
 };

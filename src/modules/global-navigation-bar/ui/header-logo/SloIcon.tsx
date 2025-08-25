@@ -1,14 +1,14 @@
-interface PlatformLogoProps {
+interface SloIconProps {
   fill?: string;
   height?: number | string;
   className?: string;
 }
 
-export const PlatformLogo = ({
+export const SloIcon = ({
   fill = "#FFFFFF",
   height = 22,
   className,
-}: PlatformLogoProps) => {
+}: SloIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

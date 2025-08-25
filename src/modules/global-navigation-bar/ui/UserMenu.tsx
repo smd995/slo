@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { UserMenu as BaseUserMenu } from "@/shared/ui/header/user-menu/UserMenu";
-import { NavItem } from "@/shared/ui/header/primitives/NavItem";
+import { NavItem } from "@/shared/ui/header/navigation/NavItem";
 import type { ComponentProps } from "react";
 import useUserStore from "@/features/auth/model/useUserStore";
 import { Dropdown } from "@/shared/ui/dropdown/Dropdown";

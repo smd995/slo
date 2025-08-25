@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Navigation as BaseNavigation } from "@/shared/ui/header/navigation/Navigation";
-import { NavItem } from "@/shared/ui/header/primitives/NavItem";
+import { NavItem } from "@/shared/ui/header/navigation/NavItem";
 import type { ComponentProps } from "react";
 import useLikeStore from "@/features/like/model/useLikeCount";
 import { Badge } from "@/shared/ui/badge/Badge";

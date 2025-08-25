@@ -1,5 +1,5 @@
 import { Header } from "@/shared/ui/header/Header";
-import { HeaderLogo } from "./HeaderLogo";
+import { HeaderLogo } from "./header-logo/HeaderLogo";
 import { Navigation } from "./Navigation";
 import { UserMenu } from "./UserMenu";
 
