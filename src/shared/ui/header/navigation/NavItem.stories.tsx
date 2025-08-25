@@ -39,39 +39,6 @@ export const Default: Story = {
   },
 };
 
-// Hover 상태
-export const Hover: Story = {
-  args: {
-    children: "메뉴 항목",
-    active: false,
-    disabled: false,
-  },
-  parameters: {
-    pseudo: { hover: true },
-  },
-};
-
-// Press 상태
-export const Press: Story = {
-  args: {
-    children: "메뉴 항목",
-    active: false,
-    disabled: false,
-  },
-  parameters: {
-    pseudo: { active: true },
-  },
-};
-
-// Primary 배경 (기본 - 이미 적용됨)
-export const Primary: Story = {
-  args: {
-    children: "메뉴 항목",
-    active: false,
-    disabled: false,
-  },
-};
-
 // Secondary 배경
 export const Secondary: Story = {
   args: {
@@ -82,28 +49,6 @@ export const Secondary: Story = {
   decorators: [
     (Story) => (
       <div style={{ backgroundColor: "oklch(0.439 0 0)" }}>
-        <Story />
-      </div>
-    ),
-  ],
-};
-
-// White 배경
-export const White: Story = {
-  args: {
-    children: "메뉴 항목",
-    active: false,
-    disabled: false,
-  },
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          padding: "20px",
-          backgroundColor: "#ffffff",
-          border: "1px solid #e5e7eb",
-        }}
-      >
         <Story />
       </div>
     ),
