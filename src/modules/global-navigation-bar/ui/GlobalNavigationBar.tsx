@@ -1,6 +1,6 @@
 import { Header } from "@/shared/ui/header/Header";
 import { HeaderLogo } from "./header-logo/HeaderLogo";
-import { Navigation } from "./Navigation";
+import { Navigation } from "./navigation/Navigation";
 import { UserMenu } from "./UserMenu";
 
 export const GlobalNavigationBar = () => {
