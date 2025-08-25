@@ -1,14 +1,14 @@
-interface LogoProps {
+interface SloIconProps {
   fill?: string;
   height?: number | string;
   className?: string;
 }
 
-export const Logo = ({
+export const SloIcon = ({
   fill = "#FFFFFF",
   height = 22,
   className,
-}: LogoProps) => {
+}: SloIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

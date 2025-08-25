@@ -1,73 +1,47 @@
 import { Slot } from "@radix-ui/react-slot";
-import React, { type ComponentProps, type ComponentRef, type Ref } from "react";
-import { HeaderLogo } from "../header-logo/HeaderLogo";
-import { Navigation } from "../navigation/Navigation";
-import { UserMenu } from "../user-menu/UserMenu";
+import { Navigation } from "./navigation/Navigation";
+import { UserMenu } from "./user-menu/UserMenu";
+import { Logo } from "./primitives/Logo";
+import type { ComponentProps, Ref } from "react";
 
-// Main Header Component
-const Header = ({
-  children,
-  className = "",
-  asChild = false,
-  ref,
-  ...props
-}: {
-  asChild?: boolean;
+type HeaderProps = ComponentProps<"header"> & {
   className?: string;
   ref?: Ref<HTMLElement>;
-} & ComponentProps<"header">) => {
-  const Comp = asChild ? Slot : "header";
-
-  return (
-    <Comp
-      ref={ref}
-      className={`bg-primary-500 flex h-[60px] items-center ${className}`}
-      {...props}
-    >
-      {children}
-    </Comp>
-  );
 };
 
-// Container Component
+type HeaderContainerProps = ComponentProps<"div"> & {
+  className?: string;
+};
+
+type HeaderSectionProps = ComponentProps<"div"> & {
+  className?: string;
+  asChild?: boolean;
+};
+
+const Header = ({ children, className, ref, ...props }: HeaderProps) => (
+  <header ref={ref} className={className} {...props}>
+    {children}
+  </header>
+);
+
 const HeaderContainer = ({
   children,
-  className = "",
-  asChild = false,
-  ref,
+  className,
   ...props
-}: {
-  asChild?: boolean;
-  className?: string;
-  ref?: Ref<HTMLDivElement>;
-} & ComponentProps<"div">) => {
-  const Comp = asChild ? Slot : "div";
+}: HeaderContainerProps) => (
+  <div className={className} {...props}>
+    {children}
+  </div>
+);
 
-  return (
-    <Comp
-      ref={ref}
-      className={`mx-auto flex h-[60px] w-full max-w-[1200px] items-center justify-between px-4 ${className}`}
-      {...props}
-    >
-      {children}
-    </Comp>
-  );
-};
-
-// Left Section Component
 const HeaderLeft = ({
   children,
   className = "",
   asChild = false,
   ref,
   ...props
-}: {
-  asChild?: boolean;
-  className?: string;
-  ref?: React.Ref<HTMLDivElement>;
-} & React.ComponentProps<"div">) => {
+}: HeaderSectionProps) => {
   const Comp = asChild ? Slot : "div";
-
   return (
     <Comp
       ref={ref}
@@ -79,20 +53,14 @@ const HeaderLeft = ({
   );
 };
 
-// Right Section Component
 const HeaderRight = ({
   children,
   className = "",
   asChild = false,
   ref,
   ...props
-}: {
-  asChild?: boolean;
-  className?: string;
-  ref?: React.Ref<HTMLDivElement>;
-} & React.ComponentProps<"div">) => {
+}: HeaderSectionProps) => {
   const Comp = asChild ? Slot : "div";
-
   return (
     <Comp
       ref={ref}
@@ -104,75 +72,28 @@ const HeaderRight = ({
   );
 };
 
-// Logo Component
-const HeaderLogoComponent = ({
-  children,
-  asChild = false,
-  ref,
-  ...props
-}: {
-  asChild?: boolean;
-  ref?: Ref<ComponentRef<typeof HeaderLogo>>;
-} & ComponentProps<typeof HeaderLogo>) => {
-  if (asChild) {
-    return (
-      <Slot ref={ref} {...props}>
-        {children}
-      </Slot>
-    );
-  }
+const HeaderLogo = (props: ComponentProps<typeof Logo>) => <Logo {...props} />;
+const HeaderNavigation = (props: ComponentProps<typeof Navigation>) => (
+  <Navigation {...props} />
+);
+const HeaderUserMenu = (props: ComponentProps<typeof UserMenu>) => (
+  <UserMenu {...props} />
+);
 
-  return children || <HeaderLogo ref={ref} {...props} />;
-};
-
-// Navigation Component
-const HeaderNavigationComponent = ({
-  children,
-  asChild = false,
-  ref,
-  ...props
-}: {
-  asChild?: boolean;
-  ref?: Ref<ComponentRef<typeof Navigation>>;
-} & ComponentProps<typeof Navigation>) => {
-  if (asChild) {
-    return (
-      <Slot ref={ref} {...props}>
-        {children}
-      </Slot>
-    );
-  }
-
-  return children || <Navigation ref={ref} {...props} />;
-};
-
-// UserMenu Component
-const HeaderUserMenuComponent = ({
-  children,
-  asChild = false,
-  ref,
-  ...props
-}: {
-  asChild?: boolean;
-  ref?: Ref<ComponentRef<typeof UserMenu>>;
-} & ComponentProps<typeof UserMenu>) => {
-  if (asChild) {
-    return (
-      <Slot ref={ref} {...props}>
-        {children}
-      </Slot>
-    );
-  }
-
-  return children || <UserMenu ref={ref} {...props} />;
-};
+Header.displayName = "Header";
+HeaderContainer.displayName = "Header.Container";
+HeaderLeft.displayName = "Header.Left";
+HeaderRight.displayName = "Header.Right";
+HeaderLogo.displayName = "Header.Logo";
+HeaderNavigation.displayName = "Header.Navigation";
+HeaderUserMenu.displayName = "Header.UserMenu";
 
 // Compound component attachments
 Header.Container = HeaderContainer;
 Header.Left = HeaderLeft;
 Header.Right = HeaderRight;
-Header.Logo = HeaderLogoComponent;
-Header.Navigation = HeaderNavigationComponent;
-Header.UserMenu = HeaderUserMenuComponent;
+Header.Logo = HeaderLogo;
+Header.Navigation = HeaderNavigation;
+Header.UserMenu = HeaderUserMenu;
 
 export { Header };
