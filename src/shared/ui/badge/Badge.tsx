@@ -14,7 +14,7 @@ export const Badge = ({ count, active = false }: BadgeProps) => {
         "inline-flex h-4 items-center justify-center rounded-full px-[7px] text-xs transition",
         active
           ? "bg-secondary-900 font-semibold text-white"
-          : "group-hover:bg-secondary-900 bg-black/30 font-normal text-white group-hover:font-semibold"
+          : "group-hover:bg-secondary-900 bg-black/30 font-normal text-white "
       )}
     >
       {count}
