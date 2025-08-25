@@ -28,7 +28,7 @@ export const HeaderLogo = ({
   return (
     <div onClick={handleClick} className={`cursor-pointer ${className}`}>
       <Logo {...props}>
-        <SloIcon fill={fill} height={40} />
+        <SloIcon fill={fill} height={22} />
       </Logo>
     </div>
   );

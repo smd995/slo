@@ -52,9 +52,9 @@ export const Navigation = ({
           <NavItem active={item.active} aria-label={item.ariaLabel}>
             <span>{item.label}</span>
             {/* Badge 영역을 항상 확보 */}
-            <div className="flex min-w-[20px] justify-center">
+            <div className="flex min-w-[34px] justify-center">
               {item.badge !== undefined && item.badge > 0 && (
-                <Badge count={item.badge} />
+                <Badge active={item.active} count={item.badge} />
               )}
             </div>
           </NavItem>

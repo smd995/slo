@@ -23,7 +23,7 @@ export const NavItem = ({
       role="link"
       aria-label={ariaLabel}
       className={clsx(
-        "group flex h-[60px] cursor-pointer items-center gap-1.5 text-sm font-semibold transition",
+        "group flex h-[60px] cursor-pointer items-center text-sm font-semibold transition",
         {
           // Active 상태
           "text-secondary-900": active,
