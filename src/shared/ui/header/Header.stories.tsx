@@ -38,7 +38,7 @@ export const CustomLogo: Story = {
     <Header>
       <Header.Container>
         <Header.Left>
-          <Header.Logo asChild>
+          <Header.Logo>
             <div className="text-white font-bold text-xl cursor-pointer">
               🚀 My Custom App
             </div>
@@ -59,7 +59,7 @@ export const CustomNavigation: Story = {
       <Header.Container>
         <Header.Left>
           <Header.Logo />
-          <Header.Navigation asChild>
+          <Header.Navigation>
             <nav className="flex items-center gap-6">
               <a
                 href="#"
@@ -105,7 +105,7 @@ export const CustomUserMenu: Story = {
           <Header.Navigation />
         </Header.Left>
         <Header.Right>
-          <Header.UserMenu asChild>
+          <Header.UserMenu>
             <div className="flex items-center gap-3">
               <button className="text-white hover:text-gray-200 px-3 py-2">
                 Help
@@ -129,7 +129,7 @@ export const FullyCustom: Story = {
     <Header>
       <Header.Container>
         <Header.Left>
-          <Header.Logo asChild>
+          <Header.Logo>
             <div className="flex items-center gap-2 cursor-pointer">
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
                 <span className="text-primary-500 font-bold text-sm">S</span>
@@ -138,7 +138,7 @@ export const FullyCustom: Story = {
             </div>
           </Header.Logo>
 
-          <Header.Navigation asChild>
+          <Header.Navigation>
             <nav className="flex items-center gap-6">
               {/* <NavItem active ariaLabel="홈">
                 홈
@@ -151,7 +151,7 @@ export const FullyCustom: Story = {
         </Header.Left>
 
         <Header.Right>
-          <Header.UserMenu asChild>
+          <Header.UserMenu>
             <div className="flex items-center gap-3">
               <button className="text-white hover:text-gray-200 text-sm">
                 문의하기
